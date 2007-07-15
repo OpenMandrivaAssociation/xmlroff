@@ -8,7 +8,7 @@ Name:		xmlroff
 Version:	0.5.1
 Release:	%mkrel 1
 License:	Distributable
-Group:		Applications/Text
+Group:		Text tools
 URL:		http://xmlroff.org
 Source0:	http://xmlroff.org/download/xmlroff-0.5.1.tar.bz2
 BuildRequires:	libglib2-devel
