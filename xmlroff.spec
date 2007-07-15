@@ -14,7 +14,7 @@ Source0:	http://xmlroff.org/download/xmlroff-0.5.1.tar.bz2
 BuildRequires:	libglib2-devel
 BuildRequires:	libxml2-devel
 BuildRequires:	libxslt-devel
-BuildRequires:	libcairo2-devel
+BuildRequires:	libcairo-devel
 BuildRequires:	libfreetype6-devel
 BuildRequires:	libpango-devel
 BuildRequires:	libgdk_pixbuf2.0-devel
