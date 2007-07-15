@@ -15,7 +15,7 @@ BuildRequires:	libglib2-devel
 BuildRequires:	libxml2-devel
 BuildRequires:	libxslt-devel
 BuildRequires:	libcairo-devel
-BuildRequires:	libfreetype6-devel
+BuildRequires:	freetype6-devel
 BuildRequires:	libpango-devel
 BuildRequires:	libgdk_pixbuf2.0-devel
 Requires:	%{libname} = %{version}-%{release}
