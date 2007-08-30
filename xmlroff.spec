@@ -5,12 +5,12 @@
 
 Summary:	XSL formatter
 Name:		xmlroff
-Version:	0.5.1
+Version:	0.5.2
 Release:	%mkrel 1
 License:	Distributable
 Group:		Text tools
 URL:		http://xmlroff.org
-Source0:	http://xmlroff.org/download/xmlroff-0.5.1.tar.bz2
+Source0:	http://xmlroff.org/download/%{name}-%{version}.tar.bz2
 BuildRequires:	libglib2-devel
 BuildRequires:	libxml2-devel
 BuildRequires:	libxslt-devel
