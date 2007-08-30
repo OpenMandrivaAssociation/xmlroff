@@ -46,7 +46,10 @@ Development files for %{name}.
 %setup -q
 
 %build
-%configure2_5x
+%configure2_5x \
+	--enable-gp \
+	--enable-cairo \
+	--disable-static
 %make
 
 %install
@@ -64,7 +67,7 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 %doc COPYING NEWS README TODO AUTHORS ChangeLog
 %{_bindir}/%{name}
-%{_datadir}/xml/libfo-*/
+%{_datadir}/xml/libfo-*
 %{_datadir}/gtk-doc/html/%{name}
 
 %files -n %{libname}
@@ -74,18 +77,7 @@ rm -rf %{buildroot}
 %files -n%{develname}
 %defattr(-,root,root)
 %dir %{_includedir}/libfo-%{apiver}
-%dir %{_includedir}/libfo-%{apiver}/area
-%dir %{_includedir}/libfo-%{apiver}/datatype
-%dir %{_includedir}/libfo-%{apiver}/property
-%dir %{_includedir}/libfo-%{apiver}/util
-%dir %{_includedir}/libfo-%{apiver}/fo
-%{_includedir}/libfo-%{apiver}/*.h
-%{_includedir}/libfo-%{apiver}/area/*.h
-%{_includedir}/libfo-%{apiver}/datatype/*.h
-%{_includedir}/libfo-%{apiver}/property/*.h
-%{_includedir}/libfo-%{apiver}/util/*.h
-%{_includedir}/libfo-%{apiver}/fo/*.h
-%{_libdir}/lib*%{apiver}.a
+%{_includedir}/libfo-%{apiver}/*
 %{_libdir}/lib*%{apiver}.la
 %{_libdir}/lib*%{apiver}.so
 %{_libdir}/pkgconfig/*.pc
