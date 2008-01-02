@@ -19,6 +19,7 @@ BuildRequires:	freetype2-devel
 BuildRequires:	libpango-devel
 BuildRequires:	libgdk_pixbuf2.0-devel
 Requires:	%{libname} = %{version}-%{release}
+BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
 Xmlroff is a fast, free, high-quality, multi-platform XSL 
