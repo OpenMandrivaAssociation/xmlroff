@@ -5,9 +5,9 @@
 
 Summary:	XSL formatter
 Name:		xmlroff
-Version:	0.5.2
+Version:	0.5.3
 Release:	%mkrel 1
-License:	Distributable
+License:	BSD-like
 Group:		Text tools
 URL:		http://xmlroff.org
 Source0:	http://xmlroff.org/download/%{name}-%{version}.tar.bz2
