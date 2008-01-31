@@ -18,6 +18,8 @@ BuildRequires:	libcairo-devel
 BuildRequires:	freetype2-devel
 BuildRequires:	libpango-devel
 BuildRequires:	libgdk_pixbuf2.0-devel
+BuildRequires:	libgnomeprint2-2-devel
+BuildRequires:	libcunit-devel
 Requires:	%{libname} = %{version}-%{release}
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
@@ -65,7 +67,7 @@ rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
-%doc COPYING NEWS README TODO AUTHORS ChangeLog
+%doc NEWS README TODO AUTHORS ChangeLog
 %{_bindir}/%{name}
 %{_datadir}/xml/libfo-*
 %{_datadir}/gtk-doc/html/%{name}
