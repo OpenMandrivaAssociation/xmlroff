@@ -5,7 +5,7 @@
 
 Summary:	XSL formatter
 Name:		xmlroff
-Version:	0.5.3
+Version:	0.5.5
 Release:	%mkrel 1
 License:	BSD-like
 Group:		Text tools
@@ -20,6 +20,7 @@ BuildRequires:	libpango-devel
 BuildRequires:	libgdk_pixbuf2.0-devel
 BuildRequires:	libgnomeprint2-2-devel
 BuildRequires:	libcunit-devel
+BuildRequires:	docbook-utils
 Requires:	%{libname} = %{version}-%{release}
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
