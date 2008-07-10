@@ -5,7 +5,7 @@
 
 Summary:	XSL formatter
 Name:		xmlroff
-Version:	0.5.5
+Version:	0.6.0
 Release:	%mkrel 1
 License:	BSD-like
 Group:		Text tools
