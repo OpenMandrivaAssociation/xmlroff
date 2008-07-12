@@ -1,5 +1,5 @@
-%define major 5
-%define apiver 0.5
+%define major 6
+%define apiver 0.6
 %define libname %mklibname fo %{apiver} %{major}
 %define develname %mklibname fo -d
 
@@ -32,6 +32,7 @@ integrates easily with other programs and with scripting languages.
 %package -n %{libname}
 Summary:	Shared libraries for %{name}
 Group:		System/Libraries
+Obsoletes:	%{mklibname fo 0.5 5} < 0.6.0
 
 %description -n %{libname}
 The %{name} XSL formatter library.
