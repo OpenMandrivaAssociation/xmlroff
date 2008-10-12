@@ -1,11 +1,11 @@
-%define major 6
+%define major 0
 %define apiver 0.6
 %define libname %mklibname fo %{apiver} %{major}
 %define develname %mklibname fo -d
 
 Summary:	XSL formatter
 Name:		xmlroff
-Version:	0.6.0
+Version:	0.6.1
 Release:	%mkrel 1
 License:	BSD-like
 Group:		Text tools
@@ -33,6 +33,7 @@ integrates easily with other programs and with scripting languages.
 Summary:	Shared libraries for %{name}
 Group:		System/Libraries
 Obsoletes:	%{mklibname fo 0.5 5} < 0.6.0
+Obsoletes:	%{mklibname fo 0.6 0} < 0.6.1
 
 %description -n %{libname}
 The %{name} XSL formatter library.
