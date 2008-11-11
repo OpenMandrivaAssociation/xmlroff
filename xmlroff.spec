@@ -6,7 +6,7 @@
 Summary:	XSL formatter
 Name:		xmlroff
 Version:	0.6.1
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	BSD-like
 Group:		Text tools
 URL:		http://xmlroff.org
@@ -22,7 +22,7 @@ BuildRequires:	libgnomeprint2-2-devel
 BuildRequires:	libcunit-devel
 BuildRequires:	docbook-utils
 Requires:	%{libname} = %{version}-%{release}
-BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 Xmlroff is a fast, free, high-quality, multi-platform XSL 
