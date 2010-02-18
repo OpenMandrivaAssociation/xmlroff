@@ -5,12 +5,13 @@
 
 Summary:	XSL formatter
 Name:		xmlroff
-Version:	0.6.1
-Release:	%mkrel 3
+Version:	0.6.2
+Release:	%mkrel 1
 License:	BSD-like
 Group:		Text tools
 URL:		http://xmlroff.org
 Source0:	http://xmlroff.org/download/%{name}-%{version}.tar.bz2
+Patch0:		xmlroff-0.6.2-format_not_a_string_literal_and_no_format_arguments.patch
 BuildRequires:	libglib2-devel
 BuildRequires:	libxml2-devel
 BuildRequires:	libxslt-devel
@@ -49,6 +50,7 @@ Development files for %{name}.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %configure2_5x \
