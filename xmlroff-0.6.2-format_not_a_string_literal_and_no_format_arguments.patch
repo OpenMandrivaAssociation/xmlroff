@@ -1,0 +1,451 @@
+diff -Naur xmlroff-0.6.2/libfo/area/fo-area-page.c xmlroff-0.6.2.tpg/libfo/area/fo-area-page.c
+--- xmlroff-0.6.2/libfo/area/fo-area-page.c	2009-03-09 17:25:15.000000000 +0000
++++ xmlroff-0.6.2.tpg/libfo/area/fo-area-page.c	2010-02-15 19:21:44.000000000 +0000
+@@ -904,7 +904,7 @@
+ 	{
+ 	  GError *error = g_error_new (FO_AREA_PAGE_ERROR,
+ 				       FO_AREA_PAGE_ERROR_OVERFLOW,
+-				       fo_area_page_error_messages[FO_AREA_PAGE_ERROR_OVERFLOW]);
++				       "%s", fo_area_page_error_messages[FO_AREA_PAGE_ERROR_OVERFLOW]);
+ 
+ 	  fo_object_log_warning (FO_OBJECT (child),
+ 				 &error);
+diff -Naur xmlroff-0.6.2/libfo/expr/fo-expr-eval.c xmlroff-0.6.2.tpg/libfo/expr/fo-expr-eval.c
+--- xmlroff-0.6.2/libfo/expr/fo-expr-eval.c	2007-07-22 21:57:51.000000000 +0000
++++ xmlroff-0.6.2.tpg/libfo/expr/fo-expr-eval.c	2010-02-15 21:35:55.000000000 +0000
+@@ -168,7 +168,7 @@
+ 
+   error = g_error_new (FO_EXPR_EVAL_ERROR,
+ 		       error_type,
+-		       error_string);
++		       "%s", error_string);
+ 
+   return fo_error_new_with_value (error);
+ }
+@@ -220,7 +220,7 @@
+ 
+   new_error = g_error_new (FO_EXPR_EVAL_ERROR,
+ 			   error_type,
+-			   error_string);
++			   "%s", error_string);
+ 
+   return fo_error_new_with_value (new_error);
+ }
+@@ -1338,14 +1338,14 @@
+       g_set_error (error,
+ 		   FO_EXPR_ERROR,
+ 		   FO_EXPR_ERROR_NULL_RESULT,
+-		   _(fo_expr_error_messages[FO_EXPR_ERROR_NULL_RESULT]));
++		   "%s", _(fo_expr_error_messages[FO_EXPR_ERROR_NULL_RESULT]));
+     }
+   else if (FO_IS_ERROR (result_datatype))
+     {
+       g_set_error (error,
+ 		   FO_EXPR_ERROR,
+ 		   FO_EXPR_ERROR_ERROR_RESULT,
+-		   _(fo_expr_error_messages[FO_EXPR_ERROR_ERROR_RESULT]));
++		   "%ss", _(fo_expr_error_messages[FO_EXPR_ERROR_ERROR_RESULT]));
+     }
+   else if (!fo_expr_context_stack_is_empty (context))
+     {
+@@ -1685,14 +1685,14 @@
+       g_set_error (error,
+ 		   FO_EXPR_ERROR,
+ 		   FO_EXPR_ERROR_NULL_RESULT,
+-		   _(fo_expr_error_messages[FO_EXPR_ERROR_NULL_RESULT]));
++		   "%s", _(fo_expr_error_messages[FO_EXPR_ERROR_NULL_RESULT]));
+     }
+   else if (FO_IS_ERROR (result_datatype))
+     {
+       g_set_error (error,
+ 		   FO_EXPR_ERROR,
+ 		   FO_EXPR_ERROR_ERROR_RESULT,
+-		   _(fo_expr_error_messages[FO_EXPR_ERROR_ERROR_RESULT]));
++		   "%s", _(fo_expr_error_messages[FO_EXPR_ERROR_ERROR_RESULT]));
+     }
+   else if (!fo_expr_context_stack_is_empty (context))
+     {
+@@ -1838,14 +1838,14 @@
+       g_set_error (error,
+ 		   FO_EXPR_ERROR,
+ 		   FO_EXPR_ERROR_NULL_RESULT,
+-		   _(fo_expr_error_messages[FO_EXPR_ERROR_NULL_RESULT]));
++		   "%s", _(fo_expr_error_messages[FO_EXPR_ERROR_NULL_RESULT]));
+     }
+   else if (FO_IS_ERROR (result_datatype))
+     {
+       g_set_error (error,
+ 		   FO_EXPR_ERROR,
+ 		   FO_EXPR_ERROR_ERROR_RESULT,
+-		   _(fo_expr_error_messages[FO_EXPR_ERROR_ERROR_RESULT]));
++		   "%s", _(fo_expr_error_messages[FO_EXPR_ERROR_ERROR_RESULT]));
+     }
+   else if (!fo_expr_context_stack_is_empty (context))
+     {
+@@ -1978,14 +1978,14 @@
+       g_set_error (error,
+ 		   FO_EXPR_ERROR,
+ 		   FO_EXPR_ERROR_NULL_RESULT,
+-		   _(fo_expr_error_messages[FO_EXPR_ERROR_NULL_RESULT]));
++		   "%s", _(fo_expr_error_messages[FO_EXPR_ERROR_NULL_RESULT]));
+     }
+   else if (FO_IS_ERROR (result_datatype))
+     {
+       g_set_error (error,
+ 		   FO_EXPR_ERROR,
+ 		   FO_EXPR_ERROR_ERROR_RESULT,
+-		   _(fo_expr_error_messages[FO_EXPR_ERROR_ERROR_RESULT]));
++		   "%s", _(fo_expr_error_messages[FO_EXPR_ERROR_ERROR_RESULT]));
+     }
+   else if (!fo_expr_context_stack_is_empty (context))
+     {
+@@ -2306,14 +2306,14 @@
+       g_set_error (error,
+ 		   FO_EXPR_ERROR,
+ 		   FO_EXPR_ERROR_NULL_RESULT,
+-		   _(fo_expr_error_messages[FO_EXPR_ERROR_NULL_RESULT]));
++		   "%s", _(fo_expr_error_messages[FO_EXPR_ERROR_NULL_RESULT]));
+     }
+   else if (FO_IS_ERROR (result_datatype))
+     {
+       g_set_error (error,
+ 		   FO_EXPR_ERROR,
+ 		   FO_EXPR_ERROR_ERROR_RESULT,
+-		   _(fo_expr_error_messages[FO_EXPR_ERROR_ERROR_RESULT]));
++		  "%s",  _(fo_expr_error_messages[FO_EXPR_ERROR_ERROR_RESULT]));
+     }
+   else if (!fo_expr_context_stack_is_empty (context))
+     {
+diff -Naur xmlroff-0.6.2/libfo/expr/fo-expr-func.c xmlroff-0.6.2.tpg/libfo/expr/fo-expr-func.c
+--- xmlroff-0.6.2/libfo/expr/fo-expr-func.c	2009-02-23 15:16:05.000000000 +0000
++++ xmlroff-0.6.2.tpg/libfo/expr/fo-expr-func.c	2010-02-15 21:23:45.000000000 +0000
+@@ -259,7 +259,7 @@
+ 	  g_set_error (error,
+ 		       FO_EXPR_EVAL_ERROR,
+ 		       FO_EXPR_EVAL_ERROR_INVALID_TYPE,
+-		       fo_expr_eval_error_messages[FO_EXPR_EVAL_ERROR_INVALID_TYPE]);
++		       "%s", fo_expr_eval_error_messages[FO_EXPR_EVAL_ERROR_INVALID_TYPE]);
+ 	}
+ 
+       g_object_unref (arg);
+@@ -269,7 +269,7 @@
+ 	  g_set_error (error,
+ 		       FO_EXPR_EVAL_ERROR,
+ 		       FO_EXPR_EVAL_ERROR_INVALID_ARITY,
+-		       fo_expr_eval_error_messages[FO_EXPR_EVAL_ERROR_INVALID_ARITY]);
++		       "%s", fo_expr_eval_error_messages[FO_EXPR_EVAL_ERROR_INVALID_ARITY]);
+     }
+ 
+   return property_name;
+@@ -1206,7 +1206,7 @@
+       g_set_error (error,
+ 		   FO_EXPR_EVAL_ERROR,
+ 		   FO_EXPR_EVAL_ERROR_INVALID_TYPE,
+-		   fo_expr_eval_error_messages[FO_EXPR_EVAL_ERROR_INVALID_TYPE]);
++		   "%s", fo_expr_eval_error_messages[FO_EXPR_EVAL_ERROR_INVALID_TYPE]);
+     }
+ 
+   return component;
+diff -Naur xmlroff-0.6.2/libfo/fo/fo-table-column.c xmlroff-0.6.2.tpg/libfo/fo/fo-table-column.c
+--- xmlroff-0.6.2/libfo/fo/fo-table-column.c	2007-10-04 09:31:43.000000000 +0000
++++ xmlroff-0.6.2.tpg/libfo/fo/fo-table-column.c	2010-02-15 19:34:51.000000000 +0000
+@@ -1139,7 +1139,7 @@
+       g_set_error (error,
+ 		   FO_TABLE_COLUMN_ERROR,
+ 		   FO_FO_ERROR_DATATYPE,
+-		   _(fo_table_column_error_messages[FO_TABLE_COLUMN_ERROR_FIXED_NO_WIDTH]));
++		   "%s", _(fo_table_column_error_messages[FO_TABLE_COLUMN_ERROR_FIXED_NO_WIDTH]));
+ 
+       fo_object_log_warning (FO_OBJECT (fo),
+ 			     error);
+diff -Naur xmlroff-0.6.2/libfo/fo/fo-table.c xmlroff-0.6.2.tpg/libfo/fo/fo-table.c
+--- xmlroff-0.6.2/libfo/fo/fo-table.c	2008-10-10 18:37:34.000000000 +0000
++++ xmlroff-0.6.2.tpg/libfo/fo/fo-table.c	2010-02-15 19:31:28.000000000 +0000
+@@ -1812,7 +1812,7 @@
+       g_set_error (error,
+ 		   FO_TABLE_ERROR,
+ 		   FO_TABLE_ERROR_LAYOUT_METHOD_UNKNOWN,
+-		   fo_table_error_messages[FO_TABLE_ERROR_LAYOUT_METHOD_UNKNOWN]);
++		   "%s", fo_table_error_messages[FO_TABLE_ERROR_LAYOUT_METHOD_UNKNOWN]);
+       return;
+     }
+ 
+@@ -1829,7 +1829,7 @@
+ 	  g_set_error (error,
+ 		       FO_TABLE_ERROR,
+ 		       FO_TABLE_ERROR_FIXED_NO_COLUMN,
+-		       fo_table_error_messages[FO_TABLE_ERROR_FIXED_NO_COLUMN]);
++		       "%s", fo_table_error_messages[FO_TABLE_ERROR_FIXED_NO_COLUMN]);
+ 	  return;
+ 	}
+ 
+@@ -1923,7 +1923,7 @@
+ 	  g_set_error (error,
+ 		       FO_TABLE_ERROR,
+ 		       FO_TABLE_ERROR_NO_AREA,
+-		       fo_table_error_messages[FO_TABLE_ERROR_NO_AREA]);
++		       "%s", fo_table_error_messages[FO_TABLE_ERROR_NO_AREA]);
+ 	  return;
+ 	}
+ 
+@@ -2625,7 +2625,7 @@
+ 	      GError *local_error =
+ 		g_error_new (FO_TABLE_ERROR,
+ 			     FO_TABLE_ERROR_FIXED_BUT_AUTO,
+-			     fo_table_error_messages[FO_TABLE_ERROR_FIXED_BUT_AUTO]);
++			     "%s", fo_table_error_messages[FO_TABLE_ERROR_FIXED_BUT_AUTO]);
+ 
+ 	      fo_object_log_warning (FO_OBJECT (fo),
+ 				     &local_error);
+@@ -2705,7 +2705,7 @@
+       GError *local_error =
+ 	g_error_new (FO_TABLE_ERROR,
+ 		     FO_TABLE_ERROR_FALLBACK_TO_FIXED,
+-		     fo_table_error_messages[FO_TABLE_ERROR_FALLBACK_TO_FIXED]);
++		     "%s", fo_table_error_messages[FO_TABLE_ERROR_FALLBACK_TO_FIXED]);
+ 
+       fo_object_log_warning (FO_OBJECT (fo),
+ 			     &local_error);
+diff -Naur xmlroff-0.6.2/libfo/fo-doc-cairo.c xmlroff-0.6.2.tpg/libfo/fo-doc-cairo.c
+--- xmlroff-0.6.2/libfo/fo-doc-cairo.c	2008-08-31 22:02:50.000000000 +0000
++++ xmlroff-0.6.2.tpg/libfo/fo-doc-cairo.c	2010-02-18 19:32:43.000000000 +0000
+@@ -362,7 +362,7 @@
+ 	  g_set_error (error,
+ 		       FO_DOC_ERROR,
+ 		       FO_DOC_ERROR_UNSUPPORTED_FORMAT,
+-		       N_(fo_doc_error_messages[FO_DOC_ERROR_UNSUPPORTED_FORMAT]));
++		       "%s", N_(fo_doc_error_messages[FO_DOC_ERROR_UNSUPPORTED_FORMAT]));
+ 	}
+       break;
+     case FO_FLAG_FORMAT_PDF:
+@@ -378,7 +378,7 @@
+       g_set_error (error,
+ 		   FO_DOC_ERROR,
+ 		   FO_DOC_ERROR_UNSUPPORTED_FORMAT,
+-		   N_(fo_doc_error_messages[FO_DOC_ERROR_UNSUPPORTED_FORMAT]));
++		   "%s", N_(fo_doc_error_messages[FO_DOC_ERROR_UNSUPPORTED_FORMAT]));
+ 
+     }
+ }
+@@ -424,7 +424,7 @@
+       g_set_error (error,
+ 		   FO_DOC_ERROR,
+ 		   FO_DOC_ERROR_FAILED,
+-		   N_(fo_doc_error_messages[FO_DOC_ERROR_FAILED]));
++		   "%s", N_(fo_doc_error_messages[FO_DOC_ERROR_FAILED]));
+       return;
+     }
+ 
+@@ -441,7 +441,7 @@
+       g_set_error (error,
+ 		   FO_DOC_ERROR,
+ 		   FO_DOC_ERROR_FAILED,
+-		   N_(fo_doc_error_messages[FO_DOC_ERROR_FAILED]));
++		   "%s", N_(fo_doc_error_messages[FO_DOC_ERROR_FAILED]));
+       return;
+     }
+ 
+diff -Naur xmlroff-0.6.2/libfo/fo-libfo-basic.c xmlroff-0.6.2.tpg/libfo/fo-libfo-basic.c
+--- xmlroff-0.6.2/libfo/fo-libfo-basic.c	2008-07-06 09:52:10.000000000 +0000
++++ xmlroff-0.6.2.tpg/libfo/fo-libfo-basic.c	2010-02-15 21:46:44.000000000 +0000
+@@ -142,7 +142,7 @@
+   g_set_error (dest,
+ 	       new_domain,
+ 	       new_code,
+-	       error_string);
++	       "%s", error_string);
+ 
+   g_free (error_string);
+ }
+diff -Naur xmlroff-0.6.2/libfo/fo-node.c xmlroff-0.6.2.tpg/libfo/fo-node.c
+--- xmlroff-0.6.2/libfo/fo-node.c	2008-07-07 10:56:43.000000000 +0000
++++ xmlroff-0.6.2.tpg/libfo/fo-node.c	2010-02-15 21:40:58.000000000 +0000
+@@ -1311,7 +1311,7 @@
+ 
+   new_error = g_error_new (src->domain,
+ 			   src->code,
+-			   new_message->str);
++			   "%s", new_message->str);
+ 
+   g_string_free (new_message, TRUE);
+   g_free (path_to_root);
+@@ -1367,7 +1367,7 @@
+ 
+   new_error = g_error_new (src->domain,
+ 			   src->code,
+-			   new_message->str);
++			   "%s", new_message->str);
+ 
+   g_string_free (new_message, TRUE);
+   g_free (path_to_root);
+diff -Naur xmlroff-0.6.2/libfo/fo-xml-doc.c xmlroff-0.6.2.tpg/libfo/fo-xml-doc.c
+--- xmlroff-0.6.2/libfo/fo-xml-doc.c	2008-07-05 15:51:49.000000000 +0000
++++ xmlroff-0.6.2.tpg/libfo/fo-xml-doc.c	2010-02-15 22:13:29.000000000 +0000
+@@ -203,7 +203,7 @@
+       g_set_error (error,
+ 		   FO_XML_DOC_ERROR,
+ 		   FO_XML_DOC_ERROR_MEMORY_PARSE_FAILED,
+-		   _(fo_xml_doc_error_messages[FO_XML_DOC_ERROR_MEMORY_PARSE_FAILED]));
++		   "%s", _(fo_xml_doc_error_messages[FO_XML_DOC_ERROR_MEMORY_PARSE_FAILED]));
+ 
+     }
+ 
+@@ -246,7 +246,7 @@
+       g_set_error (error,
+ 		   FO_XML_DOC_ERROR,
+ 		   FO_XML_DOC_ERROR_MEMORY_PARSE_FAILED,
+-		   _(fo_xml_doc_error_messages[FO_XML_DOC_ERROR_MEMORY_PARSE_FAILED]));
++		   "%s", _(fo_xml_doc_error_messages[FO_XML_DOC_ERROR_MEMORY_PARSE_FAILED]));
+ 
+     }
+ 
+diff -Naur xmlroff-0.6.2/libfo/fo-xsl-formatter.c xmlroff-0.6.2.tpg/libfo/fo-xsl-formatter.c
+--- xmlroff-0.6.2/libfo/fo-xsl-formatter.c	2009-02-24 12:16:41.000000000 +0000
++++ xmlroff-0.6.2.tpg/libfo/fo-xsl-formatter.c	2010-02-18 19:31:24.000000000 +0000
+@@ -984,7 +984,7 @@
+       g_set_error (error,
+ 		   FO_XSL_FORMATTER_ERROR,
+ 		   FO_XSL_FORMATTER_ERROR_NO_RESULT_TREE,
+-		   _(fo_xsl_formatter_error_messages[FO_XSL_FORMATTER_ERROR_NO_RESULT_TREE]));
++		   "%s", _(fo_xsl_formatter_error_messages[FO_XSL_FORMATTER_ERROR_NO_RESULT_TREE]));
+       return FALSE;
+     }
+ 
+@@ -1009,7 +1009,7 @@
+       g_set_error (error,
+ 		   FO_XSL_FORMATTER_ERROR,
+ 		   FO_XSL_FORMATTER_ERROR_NO_FO_DOC,
+-		   _(fo_xsl_formatter_error_messages[FO_XSL_FORMATTER_ERROR_NO_FO_DOC]));
++		   "%s", _(fo_xsl_formatter_error_messages[FO_XSL_FORMATTER_ERROR_NO_FO_DOC]));
+       return FALSE;
+     }
+ 
+@@ -1018,7 +1018,7 @@
+       g_set_error (error,
+ 		   FO_XSL_FORMATTER_ERROR,
+ 		   FO_XSL_FORMATTER_ERROR_NO_FO_DOC,
+-		   _(fo_xsl_formatter_error_messages[FO_XSL_FORMATTER_ERROR_NOT_FO_DOC]));
++		   "%s", _(fo_xsl_formatter_error_messages[FO_XSL_FORMATTER_ERROR_NOT_FO_DOC]));
+       return FALSE;
+     }
+ 
+@@ -1088,7 +1088,7 @@
+       g_set_error (error,
+ 		   FO_XSL_FORMATTER_ERROR,
+ 		   FO_XSL_FORMATTER_ERROR_NO_RESULT_TREE,
+-		   _(fo_xsl_formatter_error_messages[FO_XSL_FORMATTER_ERROR_NO_RESULT_TREE]));
++		   "%s", _(fo_xsl_formatter_error_messages[FO_XSL_FORMATTER_ERROR_NO_RESULT_TREE]));
+       return FALSE;
+     }
+ 
+@@ -1097,7 +1097,7 @@
+       g_set_error (error,
+ 		   FO_XSL_FORMATTER_ERROR,
+ 		   FO_XSL_FORMATTER_ERROR_NO_FO_DOC,
+-		   _(fo_xsl_formatter_error_messages[FO_XSL_FORMATTER_ERROR_NO_FO_DOC]));
++		   "%s", _(fo_xsl_formatter_error_messages[FO_XSL_FORMATTER_ERROR_NO_FO_DOC]));
+       return FALSE;
+     }
+ 
+@@ -1106,7 +1106,7 @@
+       g_set_error (error,
+ 		   FO_XSL_FORMATTER_ERROR,
+ 		   FO_XSL_FORMATTER_ERROR_NO_FO_DOC,
+-		   _(fo_xsl_formatter_error_messages[FO_XSL_FORMATTER_ERROR_NOT_FO_DOC]));
++		   "%s", _(fo_xsl_formatter_error_messages[FO_XSL_FORMATTER_ERROR_NOT_FO_DOC]));
+       return FALSE;
+     }
+ 
+@@ -1115,7 +1115,7 @@
+       g_set_error (error,
+ 		   FO_XSL_FORMATTER_ERROR,
+ 		   FO_XSL_FORMATTER_ERROR_NO_AREA_TREE,
+-		   _(fo_xsl_formatter_error_messages[FO_XSL_FORMATTER_ERROR_NO_AREA_TREE]));
++		   "%s", _(fo_xsl_formatter_error_messages[FO_XSL_FORMATTER_ERROR_NO_AREA_TREE]));
+       return FALSE;
+     }
+ 
+diff -Naur xmlroff-0.6.2/libfo/fo-xslt-transformer.c xmlroff-0.6.2.tpg/libfo/fo-xslt-transformer.c
+--- xmlroff-0.6.2/libfo/fo-xslt-transformer.c	2008-07-05 15:52:48.000000000 +0000
++++ xmlroff-0.6.2.tpg/libfo/fo-xslt-transformer.c	2010-02-15 22:14:26.000000000 +0000
+@@ -97,7 +97,7 @@
+       g_set_error (error,
+ 		   FO_XSLT_TRANSFORMER_ERROR,
+ 		   FO_XSLT_TRANSFORMER_ERROR_NO_STYLESHEET_DOC,
+-		   _(fo_xslt_transformer_error_messages[FO_XSLT_TRANSFORMER_ERROR_NO_STYLESHEET_DOC]));
++		   "%s", _(fo_xslt_transformer_error_messages[FO_XSLT_TRANSFORMER_ERROR_NO_STYLESHEET_DOC]));
+       return NULL;
+     }
+ 
+@@ -107,7 +107,7 @@
+       g_set_error (error,
+ 		   FO_XSLT_TRANSFORMER_ERROR,
+ 		   FO_XSLT_TRANSFORMER_ERROR_NO_XML_DOC,
+-		   _(fo_xslt_transformer_error_messages[FO_XSLT_TRANSFORMER_ERROR_NO_XML_DOC]));
++		   "%s", _(fo_xslt_transformer_error_messages[FO_XSLT_TRANSFORMER_ERROR_NO_XML_DOC]));
+       return NULL;
+     }
+ 
+@@ -119,7 +119,7 @@
+       g_set_error (error,
+ 		   FO_XSLT_TRANSFORMER_ERROR,
+ 		   FO_XSLT_TRANSFORMER_ERROR_PARSE_FAILED,
+-		   _(fo_xslt_transformer_error_messages[FO_XSLT_TRANSFORMER_ERROR_PARSE_FAILED]));
++		   "%s", _(fo_xslt_transformer_error_messages[FO_XSLT_TRANSFORMER_ERROR_PARSE_FAILED]));
+ 
+       return NULL;
+     }
+@@ -135,7 +135,7 @@
+ 	  g_set_error (error,
+ 		       FO_XSLT_TRANSFORMER_ERROR,
+ 		       FO_XSLT_TRANSFORMER_ERROR_TRANSFORM_FAILED,
+-		       _(fo_xslt_transformer_error_messages[FO_XSLT_TRANSFORMER_ERROR_TRANSFORM_FAILED]));
++		      "%s",  _(fo_xslt_transformer_error_messages[FO_XSLT_TRANSFORMER_ERROR_TRANSFORM_FAILED]));
+ 
+ 	  return NULL;
+ 	}
+diff -Naur xmlroff-0.6.2/libfo/property/fo-property-font-family.c xmlroff-0.6.2.tpg/libfo/property/fo-property-font-family.c
+--- xmlroff-0.6.2/libfo/property/fo-property-font-family.c	2007-08-13 17:07:51.000000000 +0000
++++ xmlroff-0.6.2.tpg/libfo/property/fo-property-font-family.c	2010-02-15 21:19:49.000000000 +0000
+@@ -414,7 +414,7 @@
+ 
+       if (tmp_error != NULL)
+ 	{
+-	  g_message (tmp_error->message);
++	  g_message ("%s", tmp_error->message);
+ 	  g_propagate_error (error,
+ 			     tmp_error);
+ 	  return NULL;
+diff -Naur xmlroff-0.6.2/libfo/property/fo-property.c xmlroff-0.6.2.tpg/libfo/property/fo-property.c
+--- xmlroff-0.6.2/libfo/property/fo-property.c	2008-06-20 08:22:26.000000000 +0000
++++ xmlroff-0.6.2.tpg/libfo/property/fo-property.c	2010-02-15 21:13:43.000000000 +0000
+@@ -386,7 +386,7 @@
+   g_set_error (error,
+ 	       FO_PROPERTY_ERROR,
+ 	       FO_PROPERTY_ERROR_NO_ENUMERATION,
+-	       fo_property_error_messages[FO_PROPERTY_ERROR_NO_ENUMERATION]);
++	       "%s", fo_property_error_messages[FO_PROPERTY_ERROR_NO_ENUMERATION]);
+   return NULL;
+ }
+ 
+diff -Naur xmlroff-0.6.2/xmlroff/xmlroff.c xmlroff-0.6.2.tpg/xmlroff/xmlroff.c
+--- xmlroff-0.6.2/xmlroff/xmlroff.c	2008-08-25 19:33:40.000000000 +0000
++++ xmlroff-0.6.2.tpg/xmlroff/xmlroff.c	2010-02-18 19:45:01.000000000 +0000
+@@ -302,7 +302,7 @@
+ 
+   if (compat_stylesheet == TRUE)
+     {
+-      printf (libfo_compat_get_stylesheet ());
++      printf ("%s", libfo_compat_get_stylesheet ());
+       exit (0);
+     }
+ 
+@@ -325,7 +325,7 @@
+       g_set_error(&error,
+ 		  XMLROFF_ERROR,
+ 		  XMLROFF_ERROR_NO_FILE,
+-		  xmlroff_error_messages [XMLROFF_ERROR_NO_FILE]);
++		  "%s", xmlroff_error_messages [XMLROFF_ERROR_NO_FILE]);
+ 
+       goto option_error;
+     }
