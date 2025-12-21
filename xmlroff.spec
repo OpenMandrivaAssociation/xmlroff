@@ -12,6 +12,11 @@ Group:		Text tools
 URL:		https://xmlroff.org
 Source0:	http://xmlroff.org/download/%{name}-%{version}.tar.bz2
 Patch0:		xmlroff-0.6.2-format_not_a_string_literal_and_no_format_arguments.patch
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	libglib2-devel
 BuildRequires:	libxml2-devel
 BuildRequires:	libxslt-devel
